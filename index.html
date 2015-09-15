@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=395, initial-scale=1, maximum-scale=1" />
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Click View to change to standart</h1>
+    <section class="calculator">
+        <ul class="main-menu inline">
+            <li id="view"><span class="keyboard-shortcut">V</span>iew</li>
+            <li><span class="keyboard-shortcut">E</span>dit</li>
+            <li><span class="keyboard-shortcut">H</span>elp</li>
+        </ul>
+
+        <div class="display box">
+            <input id="ResultScreen" type="text" class="input-big input-block input-transparent code" value="0" />
+        </div>
+
+        <div class="binary-representation box box-inset code hide">
+            <ul class="inline qword">
+                <li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li>
+            </ul>
+            <ul class="inline binary-index muted qword">
+                <li>63  </li> <!-- **************************** --> <li>47  </li> <!-- *************** --> <li>  32</li>
+            </ul>
+
+            <ul class="inline">
+                <li class="dword">0000</li><li class="dword">0000</li><li class="dword">1000</li><li class="dword">0111</li class="word"><li>0001</li><li class="word">1011</li><li class="byte">1011</li><li class="byte">0111</li>
+            </ul>
+            <ul class="inline binary-index muted">
+                <li class="dword">31  </li> <!-- **************************** --> <li class="word">15  </li> <!-- *************** --> <li class="byte">   0</li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="span2 hide">
+                <div class="row3 box">
+                    <ul class="unstyled">
+                        <li><label><input type="radio" name="numeralSystem" value="hex"  disabled/> Hex</label></li>
+                        <li><label><input type="radio" name="numeralSystem" value="dec" checked  disabled/> Dec</label></li>
+                        <li><label><input type="radio" name="numeralSystem" value="oct"  disabled/> Oct</label></li>
+                        <li><label><input type="radio" name="numeralSystem" value="bin"  disabled/> Bin</label></li>
+                    </ul>
+                </div>
+
+                <div class="row3 box">
+                    <ul class="unstyled">
+                        <li><label><input id="qword" type="radio" name="wordSize" value="qword" checked disabled/> Qword</label></li>
+                        <li><label><input id="dword" type="radio" name="wordSize" value="dword"  disabled/> Dword</label></li>
+                        <li><label><input id="word" type="radio" name="wordSize" value="word"  disabled/> Word</label></li>
+                        <li><label><input id="byte" type="radio" name="wordSize" value="byte"  disabled/> Byte</label></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span8">
+                <div class="row">
+                    <button class="span1 btn btn-muted hide" disabled>&nbsp;</button>
+                    <button class="span1 btn hide" disabled>Mod</button>
+                    <button class="span1 btn hide" disabled>A</button>
+                    <button id="memClear" class="span1 btn btn-muted">MC</button>
+                    <button id="memRecall" class="span1 btn btn-muted">MR</button>
+                    <button id="memStore" class="span1 btn btn-muted">MS</button>
+                    <button id="memAdd" class="span1 btn btn-muted">M+</button>
+                    <button id="memSubstact" class="span1 btn btn-muted">M-</button>
+                </div>
+
+                <div class="row">
+                    <button class="span1 btn hide" disabled>(</button>
+                    <button class="span1 btn hide" disabled>)</button>
+                    <button class="span1 btn hide" disabled>B</button>
+                    <button id="clearLast" class="span1 btn">←</button>
+                    <button class="span1 btn">CE</button>
+                    <button id="clearAll" class="span1 btn">C</button>
+                    <button id="plusMinus" class="span1 btn">±</button>
+                    <button id="sqr" class="span1 btn">√</button>
+                </div>
+
+                <div class="row">
+                    <button class="span1 btn hide" disabled disabled>RoL</button>
+                    <button class="span1 btn hide" disabled>RoR</button>
+                    <button class="span1 btn hide" disabled>C</button>
+                    <button id="7" class="span1 btn btn-loud">7</button>
+                    <button id="8" class="span1 btn btn-loud">8</button>
+                    <button id="9" class="span1 btn btn-loud">9</button>
+                    <button id="dev" class="span1 btn">/</button>
+                    <button id="percent" class="span1 btn">%</button>
+                </div>
+
+                <div class="row">
+                    <button class="span1 btn hide" disabled disabled>Or</button>
+                    <button class="span1 btn hide" disabled>Xor</button>
+                    <button class="span1 btn hide" disabled>D</button>
+                    <button id="4" class="span1 btn btn-loud">4</button>
+                    <button id="5" class="span1 btn btn-loud">5</button>
+                    <button id="6" class="span1 btn btn-loud">6</button>
+                    <button id="multy" class="span1 btn">*</button>
+                    <button id="turn" class="span1 btn">1/x</button>
+                </div>
+
+                <div class="row">
+                    <div class="span7">
+                        <div class="row">
+                            <button class="span1 btn hide" disabled>Lsh</button>
+                            <button class="span1 btn hide" disabled>Rsh</button>
+                            <button class="span1 btn hide" disabled>E</button>
+                            <button id="1" class="span1 btn btn-loud">1</button>
+                            <button id="2" class="span1 btn btn-loud">2</button>
+                            <button id="3" class="span1 btn btn-loud">3</button>
+                            <button id="minus" class="span1 btn">-</button>
+                        </div>
+
+                        <div class="row">
+                            <button class="span1 btn hide" disabled>Not</button>
+                            <button class="span1 btn hide" disabled>And</button>
+                            <button class="span1 btn hide" disabled>F</button>
+                            <button id="0" class="span2 btn btn-loud">0</button>
+                            <button id="point" class="span1 btn">.</button>
+                            <button id="plus" class="span1 btn">+</button>
+                        </div>
+                    </div>
+
+                    <button id="equal" class="span1 row2 btn"><strong>=</strong></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="parser.js"></script>
+    <script src="calculatorScript.js"></script>
+</body>
+</html>
